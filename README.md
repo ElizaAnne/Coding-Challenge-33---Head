@@ -1,3 +1,6 @@
 # Coding-Challenge-33---Head
 
-[LinkedIn Article](https://www.linkedin.com/pulse/coding-challenge-33-head-john-crickett-yhk8c)
+[Coding Challenge](https://codingchallenges.fyi/challenges/challenge-head/)
+
+[Head - Ubuntu Man Page](https://manpages.ubuntu.com/manpages/impish/en/man1/head.1.html)
+
