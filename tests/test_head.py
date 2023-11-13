@@ -8,10 +8,22 @@ from    unittest.mock import patch
 
 class TestHead(unittest.TestCase):
 
+    @patch('builtins.input', side_effect=['user_input'])
+    def test_user_input(self, mock_input):
+        #head.main()
+        mock_input.assert_called_once_with()
+
+    @patch('builtins.input', side_effect=['input_line']*10)
+    def test_max_10_lines_input(self, mock_input):
+        #head.main()
+        mock_input.assert_called_with('input_line')
+        self.assertEqual(mock_input.call_count, 10)
+        
+
     @patch('argparse.ArgumentParser.parse_args', return_value=argparse.Namespace(filepath='../files/text.txt'))
-    def test_filename_argument_provided(self, mock_parse_args):
+    def test_filename_arg_provided(self, mock_parse_args):
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
-            #main()
+            #head.main()
             output = mock_stdout.getvalue()
         
         text = """The Project Gutenberg eBook of The Art of War
