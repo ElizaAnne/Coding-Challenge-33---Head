@@ -10,17 +10,14 @@ class PyHead:
 
     def display_head(self):
         if self.file_path:
-            file = open(self.file_path, 'r')
-            count = self.num_lines
-            while count > 0:
-                count -= 1
-                line = file.readline()
-                if not line:
-                    break  # eof
-                print(line.strip())
-            file.close()
+            with open(self.file_path, 'r') as file:
+                for _ in range(self.num_lines):
+                    line = file.readline()
+                    if not line:
+                        break  # eof
+                    print(line.strip())
         else:
-            # This part is for the default behavior without a file path
+            # This part is for the default behavior of outputting input
             for _ in range(self.num_lines):
                 user_input = input() 
                 print(user_input)
